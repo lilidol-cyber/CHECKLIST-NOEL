@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ma checklist de Noël</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Nunito:wght@400;600;700&display=swap">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fbf5ea; --card:#fffdf8; --ink:#2a2420; --muted:#7a6d62; --line:#eadfcc;
+  --pine:#12503a; --pine-2:#0b3a2a; --berry:#b3202f; --gold:#d9a53a; --snow:#fff;
+  --hero-ink:#fff8ea; --shadow:0 6px 18px rgba(60,40,20,.12);
+  --display:"Mountains of Christmas","Georgia",serif; --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a15; --card:#162720; --ink:#f4ecdc; --muted:#a9b8ae; --line:#27403a;
+    --pine:#1c6a4d; --pine-2:#08241a; --berry:#e0495a; --gold:#e8b94d; --shadow:0 6px 18px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a15; --card:#162720; --ink:#f4ecdc; --muted:#a9b8ae; --line:#27403a;
+  --pine:#1c6a4d; --pine-2:#08241a; --berry:#e0495a; --gold:#e8b94d; --shadow:0 6px 18px rgba(0,0,0,.4);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.5}
+.snow{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.snow i{position:absolute;top:-10px;width:var(--s);height:var(--s);background:#fff;border-radius:50%;opacity:.8;animation:fall var(--d) linear var(--w) infinite}
+@keyframes fall{to{transform:translate3d(var(--x),105vh,0)}}
+@media (prefers-reduced-motion:reduce){.snow{display:none}*{transition:none!important}}
+
+header{position:relative;z-index:1;background:radial-gradient(120% 90% at 50% 0%,var(--pine) 0%,var(--pine-2) 100%);color:var(--hero-ink);padding:0 20px 42px;text-align:center}
+.wire{position:relative;height:64px;max-width:760px;margin:0 auto}
+.wire::before{content:"";position:absolute;left:-20px;right:-20px;top:14px;height:34px;border-bottom:2px solid #1d1a17;border-radius:0 0 50% 50%/0 0 100% 100%}
+.bulb{position:absolute;width:14px;height:20px;border-radius:50% 50% 55% 55%;background:#4a463f;transition:background .4s,box-shadow .4s}
+.bulb::before{content:"";position:absolute;left:3px;top:-5px;width:8px;height:6px;background:#1d1a17;border-radius:2px}
+.bulb.on{background:var(--c);box-shadow:0 0 14px 4px var(--c)}
+h1{font-family:var(--display);font-size:clamp(2.3rem,8vw,4rem);line-height:1.05;margin:4px 0 6px;letter-spacing:.5px}
+header p{margin:0 auto;max-width:44ch;opacity:.9}
+.meter{max-width:420px;margin:22px auto 0}
+.meter .num{font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.bar{height:12px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f4d37a);border-radius:99px;transition:width .5s}
+.toast{margin-top:12px;min-height:1.5em;color:#f4d37a;font-weight:700}
+
+main{position:relative;z-index:1;max-width:760px;margin:-22px auto 0;padding:0 16px 56px}
+.add{display:flex;flex-wrap:wrap;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:var(--shadow);margin-bottom:20px}
+.add input,.add select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
+.add input{flex:1 1 200px}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--berry);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden}
+section h2{font-family:var(--display);font-size:1.7rem;margin:0;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px dashed var(--line)}
+section h2 small{font-family:var(--body);font-size:.85rem;font-weight:700;color:var(--muted)}
+ul{list-style:none;margin:0;padding:6px 8px}
+li{display:flex;align-items:center;gap:6px;border-radius:12px}
+li:hover{background:var(--bg)}
+label{flex:1;display:flex;align-items:center;gap:12px;padding:10px;cursor:pointer;min-width:0}
+input[type=checkbox]{appearance:none;-webkit-appearance:none;flex:none;width:26px;height:26px;margin:0;border:2px solid var(--pine);border-radius:8px;background:var(--bg);display:grid;place-content:center;cursor:pointer;transition:background .2s,transform .15s}
+input[type=checkbox]::after{content:"";width:12px;height:7px;border-left:3px solid #fff;border-bottom:3px solid #fff;transform:rotate(-45deg) scale(0);margin-top:-3px;transition:transform .15s}
+input[type=checkbox]:checked{background:var(--berry);border-color:var(--berry)}
+input[type=checkbox]:checked::after{transform:rotate(-45deg) scale(1)}
+input[type=checkbox]:active{transform:scale(.88)}
+.t{overflow-wrap:anywhere}
+li.done .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--berry)}
+.del{background:none;border:0;color:var(--muted);font-size:1.3rem;line-height:1;padding:6px 10px;border-radius:8px}
+.del:hover{color:var(--berry)}
+footer{text-align:center;margin-top:24px}
+.ghost{background:none;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:8px 14px}
+.ghost:hover{color:var(--berry);border-color:var(--berry)}
+</style>
+</head>
+<body>
+<div class="snow" id="snow" aria-hidden="true"></div>
+
+<header>
+  <div class="wire" id="wire" aria-hidden="true"></div>
+  <h1>Ma checklist de Noël</h1>
+  <p>Cochez au fil des jours : la guirlande s’illumine à chaque tâche terminée.</p>
+  <div class="meter">
+    <div class="num" id="count">0 / 0 faites</div>
+    <div class="bar" role="progressbar" aria-label="Avancement" aria-valuemin="0" aria-valuemax="100" id="pb"><span id="fill"></span></div>
+    <div class="toast" id="toast"></div>
+  </div>
+</header>
+
+<main>
+  <div class="add">
+    <input id="newText" type="text" placeholder="Ajouter une tâche…" aria-label="Nouvelle tâche" maxlength="120">
+    <select id="newCat" aria-label="Catégorie"></select>
+    <button class="btn" id="addBtn">Ajouter</button>
+  </div>
+  <div id="lists"></div>
+  <footer><button class="ghost" id="reset">Tout décocher</button>
+    <button class="ghost" id="restore" hidden>Restaurer les tâches supprimées</button></footer>
+</main>
+
+<script>
+(function(){
+  var KEY="noel-checklist-v1";
+  var CATS=[
+    {id:"cad",name:"🎁 Cadeaux",items:["Dresser la liste des cadeaux","Fixer le budget","Acheter les cadeaux","Emballer les cadeaux","Écrire les cartes de vœux","Cadeaux à poster à l’avance"]},
+    {id:"dec",name:"🎄 Décoration",items:["Sortir les décorations","Installer le sapin","Poser la guirlande lumineuse","Décorer la table","Mettre la couronne sur la porte"]},
+    {id:"rep",name:"🍽️ Repas",items:["Choisir le menu","Réserver la dinde ou le chapon","Commander la bûche","Prévoir les boissons","Préparer l’apéritif"]},
+    {id:"org",name:"📋 Organisation",items:["Confirmer les invités","Préparer le couchage","Réserver les billets de train","Faire le plein de courses","Ranger la maison"]},
+    {id:"amb",name:"✨ Ambiance",items:["Préparer la playlist de Noël","Regarder un film de Noël","Faire des biscuits","Visiter un marché de Noël","Chanter des chants de Noël"]}
+  ];
+  var MSG=[[0,""],[1,"C’est parti ! 🎅"],[25,"Joli début, le Père Noël est content 🦌"],[50,"À mi-chemin, ça sent bon la cannelle 🍪"],[75,"Plus que quelques détails ✨"],[100,"Tout est prêt : joyeux Noël ! 🎄"]];
+  var COLORS=["#e03a3e","#f2c14e","#3fbf7f","#4aa3ff"];
+  var NB=18;
+  var state={done:{},custom:[],hidden:{}};
+  try{var s=localStorage.getItem(KEY);if(s){var p=JSON.parse(s);if(p&&p.done&&p.custom)state=p;}}catch(e){}
+  if(!state.hidden)state.hidden={};
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+  var $=function(i){return document.getElementById(i)};
+  var lists=$("lists"),sel=$("newCat");
+
+  // select
+  CATS.forEach(function(c){var o=document.createElement("option");o.value=c.id;o.textContent=c.name;sel.appendChild(o);});
+
+  // garland
+  var wire=$("wire"),bulbs=[];
+  for(var i=0;i<NB;i++){
+    var t=i/(NB-1),b=document.createElement("span");
+    b.className="bulb";
+    b.style.left="calc("+(t*100)+"% - 7px)";
+    b.style.top=(14+Math.sin(Math.PI*t)*30+8)+"px";
+    b.style.setProperty("--c",COLORS[i%COLORS.length]);
+    wire.appendChild(b);bulbs.push(b);
+  }
+
+  // snow
+  var snow=$("snow");
+  for(var k=0;k<36;k++){
+    var f=document.createElement("i");
+    f.style.left=(Math.random()*100)+"%";
+    f.style.setProperty("--s",(3+Math.random()*5)+"px");
+    f.style.setProperty("--d",(9+Math.random()*10)+"s");
+    f.style.setProperty("--w","-"+(Math.random()*18)+"s");
+    f.style.setProperty("--x",(Math.random()*80-40)+"px");
+    snow.appendChild(f);
+  }
+
+  function items(c){
+    var base=c.items.map(function(t,i){return{id:c.id+i,text:t,custom:false}}).filter(function(x){return !state.hidden[x.id]});
+    var extra=state.custom.filter(function(x){return x.cat===c.id}).map(function(x){return{id:x.id,text:x.text,custom:true}});
+    return base.concat(extra);
+  }
+
+  function render(){
+    lists.innerHTML="";
+    CATS.forEach(function(c){
+      var its=items(c),n=its.filter(function(x){return state.done[x.id]}).length;
+      var sec=document.createElement("section");
+      var h=document.createElement("h2");
+      h.innerHTML="<span></span><small></small>";
+      h.firstChild.textContent=c.name;
+      h.lastChild.textContent=n+" / "+its.length;
+      sec.appendChild(h);
+      var ul=document.createElement("ul");
+      its.forEach(function(x){
+        var li=document.createElement("li");
+        if(state.done[x.id])li.className="done";
+        var lb=document.createElement("label");
+        var cb=document.createElement("input");
+        cb.type="checkbox";cb.checked=!!state.done[x.id];
+        cb.addEventListener("change",function(){
+          if(cb.checked)state.done[x.id]=true;else delete state.done[x.id];
+          save();render();
+        });
+        var sp=document.createElement("span");sp.className="t";sp.textContent=x.text;
+        lb.appendChild(cb);lb.appendChild(sp);li.appendChild(lb);
+        if(true){
+          var d=document.createElement("button");
+          d.className="del";d.type="button";d.textContent="×";d.setAttribute("aria-label","Supprimer « "+x.text+" »");
+          d.addEventListener("click",function(){
+            if(x.custom)state.custom=state.custom.filter(function(y){return y.id!==x.id});else state.hidden[x.id]=true;
+            delete state.done[x.id];save();render();
+          });
+          li.appendChild(d);
+        }
+        ul.appendChild(li);
+      });
+      sec.appendChild(ul);lists.appendChild(sec);
+    });
+    progress();
+  }
+
+  function progress(){
+    var tot=0,done=0;
+    CATS.forEach(function(c){var its=items(c);tot+=its.length;done+=its.filter(function(x){return state.done[x.id]}).length;});
+    var pct=tot?Math.round(done/tot*100):0;
+    $("count").textContent=done+" / "+tot+" faites";
+    $("fill").style.width=pct+"%";
+    $("pb").setAttribute("aria-valuenow",pct);
+    $("restore").hidden=!Object.keys(state.hidden).length;
+    var lit=Math.round(pct/100*NB);
+    bulbs.forEach(function(b,i){b.classList.toggle("on",i<lit)});
+    var m="";MSG.forEach(function(x){if(pct>=x[0])m=x[1]});
+    $("toast").textContent=m;
+  }
+
+  function add(){
+    var inp=$("newText"),v=inp.value.trim();
+    if(!v){inp.focus();return;}
+    state.custom.push({id:"c"+Date.now(),cat:sel.value,text:v});
+    inp.value="";save();render();
+  }
+  $("addBtn").addEventListener("click",add);
+  $("newText").addEventListener("keydown",function(e){if(e.key==="Enter")add();});
+  $("reset").addEventListener("click",function(){state.done={};save();render();});
+  $("restore").addEventListener("click",function(){state.hidden={};save();render();});
+
+  render();
+})();
+</script>
+</body>
+</html>
